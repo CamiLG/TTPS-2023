@@ -1,3 +1,31 @@
-<p>register-form works!</p>
-<!--<button mat-raised-button color="primary" (click)="onButtonClick()">Click me!</button> -->
+<h1>Registrese</h1>
+<form class="registro-form" [formGroup]="registroForm" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <input matInput placeholder="Nombre" formControlName="nombre">
+      <mat-error *ngIf="registroForm.get('nombre')?.hasError('required')">El nombre es obligatorio</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field>
+      <input matInput placeholder="Apellido" formControlName="apellido">
+      <mat-error *ngIf="registroForm.get('apellido')?.hasError('required')">El apellido es obligatorio</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field>
+      <input matInput placeholder="Usuario" formControlName="usuario">
+      <mat-error *ngIf="registroForm.get('usuario')?.hasError('required')">El usuario es obligatorio</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field>
+      <input matInput placeholder="Email" formControlName="email">
+      <mat-error *ngIf="registroForm.get('email')?.hasError('required')">El email es obligatorio</mat-error>
+      <mat-error *ngIf="registroForm.get('email')?.hasError('email')">Formato de email no válido</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field>
+      <input matInput type="password" placeholder="Contraseña" formControlName="password">
+      <mat-error *ngIf="registroForm.get('password')?.hasError('required')">La contraseña es obligatoria</mat-error>
+    </mat-form-field>
+  
+    <button mat-raised-button color="primary" type="submit">Registrarse</button>
+  </form>
 

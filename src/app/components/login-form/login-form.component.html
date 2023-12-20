@@ -1,20 +1,22 @@
-<div class="wrapper">
-    <h1>Inicie Sesión</h1>
-    <form (ngSubmit)="onSubmit()">
-        <mat-form-field appearance="fill" color="accent">
-            <mat-label for="usuario">Usuario: </mat-label>
-            <input matInput type="text" autocomplete="off" id="usuario" name="usuario" [(ngModel)]="usuario"
-                required />
-            <mat-hint>Ingrese su Usuario</mat-hint>
-        </mat-form-field>
-        <p></p>
-        <mat-form-field appearance="fill" color="accent">
-            <mat-label for="password" color="primary">Password: </mat-label>
-            <input matInput [type]="hide?'password':'text'" id="password" name="password" [(ngModel)]="password"
-                required />
-            <mat-hint>Ingrese su Contraseña</mat-hint>
-        </mat-form-field>
-        <p></p>
-        <button mat-raised-button color="primary" type="submit">Log in</button>
-    </form>
+<h1>Inicie Sesión</h1>
+<div class="login-container">
+    <div class="login-content">
+        <form (ngSubmit)="onSubmit()">
+            <mat-form-field appearance="fill" color="accent">
+                <mat-label for="usuario">Usuario: </mat-label>
+                <input matInput type="text" autocomplete="off" id="usuario" name="usuario" [(ngModel)]="usuario"
+                    required />
+                <mat-hint>Ingrese su Usuario</mat-hint>
+            </mat-form-field>
+            <p></p>
+            <mat-form-field appearance="fill" color="accent">
+                <mat-label for="password" color="primary">Password: </mat-label>
+                <input matInput [type]="hide?'password':'text'" id="password" name="password" [(ngModel)]="password"
+                    required />
+                <mat-hint>Ingrese su Contraseña</mat-hint>
+            </mat-form-field>
+            <p></p>
+            <button mat-raised-button color="primary" type="submit">Log in</button>
+        </form>
+    </div>
 </div>
