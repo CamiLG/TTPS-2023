@@ -1,0 +1,21 @@
+
+<mat-toolbar color="primary">
+    <a mat-button routerLink="/">Inicio</a>
+    <span class="spacer"></span>
+<!-- <a mat-button routerLink="/login">Login</a> 
+        <a mat-button routerLink="/register">Registrarse</a>
+--> 
+<div *ngIf="!userLoginOn"> 
+    <div *ngIf="router.url != '/login'">
+        <button mat-button (click)="login()">Login</button>
+      </div>
+      <div *ngIf="router.url != '/register'">
+        <button mat-button (click)="signin()">Registro</button>
+      </div>
+</div>
+<div *ngIf="userLoginOn">
+    <button mat-button>Cerrar Sesion</button>
+  </div>
+  </mat-toolbar>
+
+
