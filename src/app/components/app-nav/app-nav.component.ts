@@ -21,13 +21,16 @@ export class AppNavComponent implements OnInit{
   }
 
   home() {
-    this.router.navigateByUrl('publicHome')
+    this.router.navigateByUrl('home')
   }
 
   signin() {
     this.router.navigateByUrl('register')
   }
-
+  logout() {
+    this.userLoginOn=false;
+    this.router.navigateByUrl('login')
+  }
   ngOnInit(): void {
   }
 }
