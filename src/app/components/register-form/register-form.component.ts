@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Usuario } from '../../models/Usuario';
 import { RegisterService } from '../../services/register.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register-form',
@@ -12,7 +13,7 @@ export class RegisterFormComponent {
 
   registroForm: FormGroup;
 
-  constructor(private fb: FormBuilder,private registerService: RegisterService) {
+  constructor(private fb: FormBuilder,private registerService: RegisterService, public router: Router) {
     this.registroForm = this.fb.group({
       nombre: ['', Validators.required],
       apellido: ['', Validators.required],
@@ -30,11 +31,14 @@ export class RegisterFormComponent {
       .subscribe({
         next: (usuario) => {
           console.log('Datos del formulario:', usuario);
+          this.router.navigateByUrl('login')
         },
         error: (errorData) => {
           console.error(errorData);
         },
         complete: () => {
+          //Acá se podría llamar a un servicio de notificacion que modele un mensaje
+          //en pantalla diciendo que el usuario se cargó exitosamente
           console.info("Registro completo");
         }
       }
