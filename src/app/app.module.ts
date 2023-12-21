@@ -12,6 +12,16 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { AppNavComponent } from './components/app-nav/app-nav.component';
 import { HomeComponent } from './components/home/home.component';
+import {AppFooterComponent} from "./components/app-footer/app-footer.component";
+import {
+  CardBodyComponent,
+  CardComponent, CardFooterComponent,
+  ColComponent,
+  ContainerComponent,
+  FooterComponent, GutterDirective,
+  RowComponent
+} from "@coreui/angular";
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 @NgModule({
   declarations: [
@@ -19,6 +29,7 @@ import { HomeComponent } from './components/home/home.component';
     LoginFormComponent,
     RegisterFormComponent,
     HomeComponent,
+    AppFooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,7 +41,15 @@ import { HomeComponent } from './components/home/home.component';
     MatInputModule,
     MatFormFieldModule,
     AppNavComponent,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FooterComponent,
+    ContainerComponent,
+    RowComponent,
+    ColComponent,
+    CardComponent,
+    CardBodyComponent,
+    CardFooterComponent,
+    GutterDirective
 
   ],
   providers: [

@@ -1,1 +1,23 @@
-<p>home works!</p>
+<c-container fluid>
+  <c-row [gutter]="4" class="mb-3" [md]="3" [xs]="1">
+    <c-col *ngFor="let grupo of grupos; index as i;">
+      <c-card class="h-100">
+     <!--   <img cCardImg="top" src="{{grupo.categoria.img}}"> -->
+        <c-card-body>
+          <h5 cCardTitle>{{grupo.nombre}}</h5>
+          <p cCardText>
+           Categoría: {{grupo.categoria.nombre}}
+          </p>
+        </c-card-body>
+        <c-card-footer>
+          <small class="text-medium-emphasis">
+            <div class="d-grid gap-2 d-md-block">
+              <button cButton color="info" shape="rounded-pill" (click)="detalle()">Ver detalle</button>
+              <button cButton color="secondary" shape="rounded-pill" (click)="editar()">Editar</button>
+            </div>
+          </small>
+        </c-card-footer>
+      </c-card>
+    </c-col>
+  </c-row>
+</c-container>
