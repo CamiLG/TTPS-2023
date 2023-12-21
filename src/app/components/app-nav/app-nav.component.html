@@ -6,17 +6,20 @@
 
 <!-- <a mat-button routerLink="/login">Login</a> 
         <a mat-button routerLink="/register">Registrarse</a>
+
+        <div *ngIf="router.url == '/home'">
+            </div>
 --> 
     <div *ngIf="router.url == '/register'">
-        <button mat-button (click)="login()">Login</button>
+        <button mat-button *ngIf="!userLoginOn" (click)="login()">Login</button>
       </div>
       <div *ngIf="router.url == '/login'">
-        <button mat-button (click)="signin()">Registro</button>
+        <button mat-button *ngIf="!userLoginOn"(click)="signin()">Registro</button>
       </div>
       
-<div *ngIf="router.url == '/home'">
-    <button mat-button (click)="logout()">Cerrar Sesion</button>
-  </div>
+
+    <button mat-button *ngIf="userLoginOn" (click)="logout()">Cerrar Sesion</button>
+
   </mat-toolbar>
 
 
