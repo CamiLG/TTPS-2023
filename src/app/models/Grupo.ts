@@ -3,9 +3,9 @@ import {CategoriaGrupo} from "./CategoriaGrupo";
 export class Grupo {
   id: number;
   nombre: string;
-  categoria: number;
+  categoria: CategoriaGrupo;
 
-  constructor(id: number, nombre: string, categoria: number)
+  constructor(id: number, nombre: string, categoria: CategoriaGrupo)
 {
   this.id = id;
   this.nombre = nombre;

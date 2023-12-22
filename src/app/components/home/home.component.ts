@@ -20,12 +20,12 @@ export class HomeComponent {
     });
   }
 
-  detalle() {
-    this.router.navigateByUrl('login')
-  }
 
-  editar() {
-    this.router.navigateByUrl('grupo/:id')
+  detalle(id: number) {
+    this.router.navigate(['group/view/', id]);
+  }
+   editar(id: number) {
+    this.router.navigate(['group/', id]);
   }
 
   crearGrupo() {

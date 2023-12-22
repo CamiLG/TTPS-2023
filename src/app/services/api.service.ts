@@ -18,6 +18,10 @@ export class ApiService {
     return this.http.get<Grupo[]>(`${env.url}grupos/all`)
   }
 
+  getGrupo(id: number): Observable<Grupo[]> {
+    return this.http.get<Grupo[]>(`${env.url}grupos/`+id)
+  }
+
   getCategoriasGrupos(): Observable<CategoriaGrupo[]> {
     return this.http.get<CategoriaGrupo[]>(`${env.url}grupos/cat/all`)
   }
@@ -31,8 +35,8 @@ export class ApiService {
     )
   }
 
-  editarGrupo(grupo: Grupo):Observable<Grupo>{
-    return this.http.put<Grupo>(`${env.url}grupos/{id}`, grupo).pipe(
+  editarGrupo(grupo: Grupo, id:number):Observable<Grupo>{
+    return this.http.put<Grupo>(`${env.url}grupos/`+id, grupo).pipe(
       catchError(this.handleError)
     )
   }

@@ -1,0 +1,21 @@
+<h1>EDITAR GRUPO</h1>
+<form class="edit-form" [formGroup]="editForm" (ngSubmit)="onSubmit()">
+
+  <mat-form-field>
+    <input matInput placeholder="Nombre" formControlName="nombre" id="nombre">
+    <mat-error *ngIf="editForm.get('nombre')?.hasError('required')">El nombre es obligatorio</mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-label>Categoria</mat-label>
+    <mat-select formControlName="categoriaGrupo" name="categoriaGrupo" id="categoriaGrupo">
+
+      <mat-option *ngFor="let cat of categorias" [value]="cat">
+        {{ cat.nombreGrupo }}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="editForm.get('categoriaGrupo')?.hasError('required')">La categoria es obligatoria</mat-error>
+  </mat-form-field>
+  <br>
+  <button mat-raised-button color="primary" type="submit">Editar grupo</button>
+</form>

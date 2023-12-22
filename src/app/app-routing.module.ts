@@ -5,6 +5,7 @@ import { RegisterFormComponent } from './components/register-form/register-form.
 import { HomeComponent } from './components/home/home.component';
 import { GroupAddComponent } from "./components/group-add/group-add.component";
 import { GroupEditComponent } from "./components/group-edit/group-edit.component";
+import {GroupViewComponent} from "./components/group-view/group-view.component";
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -12,7 +13,8 @@ const routes: Routes = [
   {path: 'register', component: RegisterFormComponent},
   {path: 'home', component: HomeComponent},
   {path: 'group/add', component: GroupAddComponent},
-  {path: 'group/:id', component: GroupEditComponent}
+  {path: 'group/:id', component: GroupEditComponent},
+  {path: 'group/view/:id', component: GroupViewComponent}
 ];
 
 @NgModule({

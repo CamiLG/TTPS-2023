@@ -1,0 +1,19 @@
+<c-card class="example-card">
+  <c-card class="h-100">
+    <img cCardImg="top" class="h-25" src="{{grupo.categoriaGrupo.img.path}}">
+    <c-card-body>
+      <h5 cCardTitle>Categoría: {{grupo.categoriaGrupo.nombreGrupo}}</h5>
+      <p cCardText>{{grupo.nombre}}</p>
+    </c-card-body>
+  </c-card>
+
+
+    <p>
+      The Shiba Inu.
+    </p>
+  <c-card-footer>
+  <small class="text-medium-emphasis">
+    &nbsp;<button mat-raised-button color="primary"  (click)="editar(grupo.id)">Editar</button>
+  </small>
+  </c-card-footer>
+</c-card>

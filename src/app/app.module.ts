@@ -25,6 +25,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { GroupAddComponent } from './components/group-add/group-add.component'
 import {MatSelectModule} from "@angular/material/select";
 import { GroupEditComponent } from './components/group-edit/group-edit.component';
+import { GroupViewComponent } from './components/group-view/group-view.component';
+import {MatCardModule} from "@angular/material/card";
 
 @NgModule({
   declarations: [
@@ -35,6 +37,7 @@ import { GroupEditComponent } from './components/group-edit/group-edit.component
     AppFooterComponent,
     GroupAddComponent,
     GroupEditComponent,
+    GroupViewComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,7 +58,8 @@ import { GroupEditComponent } from './components/group-edit/group-edit.component
     CardBodyComponent,
     CardFooterComponent,
     GutterDirective,
-    MatSelectModule
+    MatSelectModule,
+    MatCardModule
 
   ],
   providers: [
