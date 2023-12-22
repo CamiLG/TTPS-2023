@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {Observable, catchError, throwError} from 'rxjs';
 import {Grupo} from "../models/Grupo";
+import {GrupoDTO} from "../models/GrupoDTO";
 import {environment as env} from "../../environments/environment";
 import {Usuario} from "../models/Usuario";
 import {CategoriaGrupo} from "../models/CategoriaGrupo";
@@ -24,8 +25,14 @@ export class ApiService {
   getCategoria(): Observable<CategoriaGrupo[]> {
     return this.http.get<CategoriaGrupo[]>(`${env.url}grupos/cat/{id}`)
   }
-  addGrupo(grupo: Grupo):Observable<Grupo>{
-    return this.http.post<Grupo>(`${env.url}grupos/create`, grupo).pipe(
+  addGrupo(grupo: GrupoDTO):Observable<GrupoDTO>{
+    return this.http.post<GrupoDTO>(`${env.url}grupos/create`, grupo).pipe(
+      catchError(this.handleError)
+    )
+  }
+
+  editarGrupo(grupo: Grupo):Observable<Grupo>{
+    return this.http.put<Grupo>(`${env.url}grupos/{id}`, grupo).pipe(
       catchError(this.handleError)
     )
   }

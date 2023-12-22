@@ -6,6 +6,7 @@ import {ApiService} from "../../services/api.service";
 import {Usuario} from "../../models/Usuario";
 import {Grupo} from "../../models/Grupo";
 import {CategoriaGrupo} from "../../models/CategoriaGrupo";
+import {GrupoDTO} from "../../models/GrupoDTO";
 
 @Component({
   selector: 'app-group-add',
@@ -15,7 +16,6 @@ import {CategoriaGrupo} from "../../models/CategoriaGrupo";
 export class GroupAddComponent {
   crearForm: FormGroup;
   categorias: any[] = [];
-  cat: any[] = [];
 
   constructor(private fb: FormBuilder, private apiService: ApiService, public router: Router) {
     this.apiService.getCategoriasGrupos().subscribe(data => {
@@ -25,21 +25,15 @@ export class GroupAddComponent {
 
     this.crearForm = this.fb.group({
       nombre: ['', Validators.required],
-      categoria: [this.categorias, Validators.required],
+      categoriaGrupo: [this.categorias, Validators.required],
       //  imagen: ['', Validators.required]
     });
   }
 
   onSubmit() {
     if (this.crearForm.valid) {
-      const grupo: Grupo = this.crearForm.value as Grupo;
+      const grupo: GrupoDTO = this.crearForm.value as GrupoDTO;
       console.log('Datos del formulario:', grupo);
-      console.log('value:', this.crearForm.get('categoria')?.value);
-      /* this.apiService.getCategoria().subscribe(data => {
-         this.cat = data;
-         console.log(this.cat);
-       });*/
-      // grupo.categoria = this.crearForm.get('categoria')?.value;
       this.apiService.addGrupo(grupo)
         .subscribe({
             next: (grupo) => {

@@ -25,7 +25,7 @@ export class HomeComponent {
   }
 
   editar() {
-    this.router.navigateByUrl('grupo/add')
+    this.router.navigateByUrl('grupo/:id')
   }
 
   crearGrupo() {
