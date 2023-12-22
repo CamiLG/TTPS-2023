@@ -1,25 +1,21 @@
-
 <mat-toolbar color="primary">
-    <a mat-button *ngIf="userLoginOn" (click)="home()">Inicio</a>
-    <span class="spacer"></span>
+  <a cNavbarBrand>
+    <img src="./assets/cc-blanco1.svg" alt="" width="132" height="128"/>
+  </a>
+  <span class="spacer"></span>
+  <div *ngIf="userLoginOn" fxLayout="row" fxLayoutAlign="space-evenly center" class="me-auto mb-2 mb-lg-0">
+    <button mat-button cNavLink  (click)="home()">Grupos</button>
+    <button mat-button cNavLink disabled>Gastos</button>
+    <button mat-button cNavLink disabled>Amigos</button>
+    <button mat-button (click)="logout()">Cerrar Sesion</button>
+  </div>
 
-
-<!-- <a mat-button routerLink="/login">Login</a> 
-        <a mat-button routerLink="/register">Registrarse</a>
-
-        <div *ngIf="router.url == '/home'">
-            </div>
---> 
-    <div *ngIf="router.url == '/register'">
-        <button mat-button *ngIf="!userLoginOn" (click)="login()">Login</button>
-      </div>
-      <div *ngIf="router.url == '/login'">
-        <button mat-button *ngIf="!userLoginOn"(click)="signin()">Registro</button>
-      </div>
-      
-
-    <button mat-button *ngIf="userLoginOn" (click)="logout()">Cerrar Sesion</button>
-
-  </mat-toolbar>
+  <div *ngIf="router.url == '/register'">
+    <button mat-button *ngIf="!userLoginOn" (click)="login()">Login</button>
+  </div>
+  <div *ngIf="router.url == '/login'">
+    <button mat-button *ngIf="!userLoginOn" (click)="signin()">Registro</button>
+  </div>
+</mat-toolbar>
 
 

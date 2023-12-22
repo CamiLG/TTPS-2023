@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
-import {GrupoService} from "../../services/grupo.service";
+import {Component} from '@angular/core';
 import {Grupo} from "../../models/Grupo";
 import {Router} from "@angular/router";
+import {ApiService} from "../../services/api.service";
 
 @Component({
   selector: 'app-home',
@@ -11,20 +11,25 @@ import {Router} from "@angular/router";
 export class HomeComponent {
 
   grupos: any[] = [];
-  constructor(private grupoService: GrupoService, public router: Router) {
 
-   this.grupoService.getGrupos().subscribe( data => {
-     this.grupos = data;
-     console.log(this.grupos);
-   });
+  constructor(private apiService: ApiService, public router: Router) {
 
+    this.apiService.getGrupos().subscribe(data => {
+      this.grupos = data;
+      console.log(this.grupos);
+    });
   }
 
-  detalle(){
+  detalle() {
     this.router.navigateByUrl('login')
   }
 
-  editar(){
-    this.router.navigateByUrl('login')
+  editar() {
+    this.router.navigateByUrl('grupo/add')
   }
+
+  crearGrupo() {
+    this.router.navigateByUrl('group/add')
+  }
+
 }

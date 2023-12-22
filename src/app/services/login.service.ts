@@ -1,12 +1,13 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, throwError, BehaviorSubject, tap } from 'rxjs';
+import {environment as env} from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
-  private apiUrl = 'http://localhost:8080/usuarios/login';
+  private apiUrl = `${env.url}usuarios/login`;
   currentUserLoginOn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   currentUserData: BehaviorSubject<any> = new BehaviorSubject<any>({usuario:'', password: ''});
 
@@ -26,7 +27,7 @@ export class LoginService {
     if(error.status===0){
       console.error('Se produjo un error', error.error);
       //redirigir a pagina de error
-    } 
+    }
     else{
       console.error('La api retorno el codigo de estado', error.status, error.error);
       //redirigir a pagina de error

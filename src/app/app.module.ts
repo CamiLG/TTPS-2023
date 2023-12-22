@@ -21,7 +21,9 @@ import {
   FooterComponent, GutterDirective,
   RowComponent
 } from "@coreui/angular";
-import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { GroupAddComponent } from './components/group-add/group-add.component'
+import {MatSelectModule} from "@angular/material/select";
 
 @NgModule({
   declarations: [
@@ -30,6 +32,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
     RegisterFormComponent,
     HomeComponent,
     AppFooterComponent,
+    GroupAddComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,7 +52,8 @@ import 'bootstrap/dist/css/bootstrap.min.css'
     CardComponent,
     CardBodyComponent,
     CardFooterComponent,
-    GutterDirective
+    GutterDirective,
+    MatSelectModule
 
   ],
   providers: [
