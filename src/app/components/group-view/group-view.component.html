@@ -1,19 +1,24 @@
-<c-card class="example-card">
-  <c-card class="h-100">
-    <img cCardImg="top" class="h-25" src="{{grupo.categoriaGrupo.img.path}}">
-    <c-card-body>
-      <h5 cCardTitle>Categoría: {{grupo.categoriaGrupo.nombreGrupo}}</h5>
-      <p cCardText>{{grupo.nombre}}</p>
+<c-container fluid>
+<c-card class="mb-3" [ngStyle]="{'max-width.px': 540}">
+  <c-row class="g-0">
+    <c-col [md]="4">
+      <img [cCardImg] src="{{grupo.categoriaGrupo.img.path}}">
+    </c-col>
+    <c-col [md]="1"></c-col>
+    <c-col [md]="6">
+    <c-card-body cCol [md]="8">
+      <h1 cCardTitle>Grupo {{grupo.nombre}}</h1>
+      <p cCardText>
+        Categoría: {{grupo.categoriaGrupo.nombreGrupo}}
+      </p>
+      <p cCardText>
+        <small class="text-medium-emphasis">
+          <button mat-raised-button color="primary"  (click)="editar(grupo.id)">Editar</button>
+          <button mat-raised-button color="accent"  (click)="gasto(grupo.id)">Ver Gastos</button>
+        </small>
+      </p>
     </c-card-body>
-  </c-card>
-
-
-    <p>
-      The Shiba Inu.
-    </p>
-  <c-card-footer>
-  <small class="text-medium-emphasis">
-    &nbsp;<button mat-raised-button color="primary"  (click)="editar(grupo.id)">Editar</button>
-  </small>
-  </c-card-footer>
+    </c-col>
+  </c-row>
 </c-card>
+</c-container>

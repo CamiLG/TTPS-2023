@@ -15,8 +15,8 @@ import { HomeComponent } from './components/home/home.component';
 import {AppFooterComponent} from "./components/app-footer/app-footer.component";
 import {
   CardBodyComponent,
-  CardComponent, CardFooterComponent,
-  ColComponent,
+  CardComponent, CardFooterComponent, CardImgDirective,
+  ColComponent, ColDirective,
   ContainerComponent,
   FooterComponent, GutterDirective,
   RowComponent
@@ -27,6 +27,7 @@ import {MatSelectModule} from "@angular/material/select";
 import { GroupEditComponent } from './components/group-edit/group-edit.component';
 import { GroupViewComponent } from './components/group-view/group-view.component';
 import {MatCardModule} from "@angular/material/card";
+import { GastoViewComponent } from './components/gasto-view/gasto-view.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import {MatCardModule} from "@angular/material/card";
     GroupAddComponent,
     GroupEditComponent,
     GroupViewComponent,
+    GastoViewComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,7 +61,9 @@ import {MatCardModule} from "@angular/material/card";
     CardFooterComponent,
     GutterDirective,
     MatSelectModule,
-    MatCardModule
+    MatCardModule,
+    CardImgDirective,
+    ColDirective
 
   ],
   providers: [

@@ -1,0 +1,21 @@
+<div fxLayout="row" fxLayoutAlign="space-evenly center" class="me-auto mb-2 mb-lg-0">
+  <h1 class="align-content-center">MIS GASTOS</h1><br>
+</div>
+<!--
+<button mat-raised-button (click)="crearGasto()">Crear grupo</button>
+&nbsp;-->
+<c-container fluid>
+<c-row [gutter]="4" class="mb-3" [md]="3" [xs]="1">
+  <c-col *ngFor="let gasto of gastos; index as i;">
+    <c-card class="h-100">
+      <img cCardImg="top" src="{{gasto.categoriaGasto.img.path}}">
+      <c-card-body>
+        <h5 cCardTitle>Categoría: {{gasto.categoriaGasto.nombreGasto}}</h5>
+        <p cCardText>{{gasto.nombre}}</p>
+      </c-card-body>
+
+      </c-card>
+    </c-col>
+  </c-row>
+</c-container>
+

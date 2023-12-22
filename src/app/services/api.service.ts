@@ -3,6 +3,7 @@ import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {Observable, catchError, throwError} from 'rxjs';
 import {Grupo} from "../models/Grupo";
 import {GrupoDTO} from "../models/GrupoDTO";
+import {Gasto} from "../models/Gasto";
 import {environment as env} from "../../environments/environment";
 import {Usuario} from "../models/Usuario";
 import {CategoriaGrupo} from "../models/CategoriaGrupo";
@@ -39,6 +40,10 @@ export class ApiService {
     return this.http.put<Grupo>(`${env.url}grupos/`+id, grupo).pipe(
       catchError(this.handleError)
     )
+  }
+
+  getGastos(id:number): Observable<Gasto[]> {
+    return this.http.get<Gasto[]>(`${env.url}grupos/gastosDelGrupo/`+id)
   }
 
   private handleError(error:HttpErrorResponse){

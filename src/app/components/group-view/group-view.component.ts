@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder} from "@angular/forms";
 import {ApiService} from "../../services/api.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {Grupo} from "../../models/Grupo";
 
 @Component({
   selector: 'app-group-view',
@@ -11,25 +11,26 @@ import {ActivatedRoute, Router} from "@angular/router";
 export class GroupViewComponent implements OnInit{
   grupo: any;
   groupId: number= 0;
-  constructor(private fb: FormBuilder, private apiService: ApiService,public router: Router, private routeA: ActivatedRoute) {
-
-
-  }
-
-  ngOnInit() {
+  constructor(private apiService: ApiService,public router: Router, private routeA: ActivatedRoute) {
     this.routeA.params.subscribe(params => {
       this.groupId = +params['id']; // Leer el ID del grupo desde los parámetros de la ruta
       console.log("a", this.groupId);
-      // Ahora puedes usar this.groupId para realizar operaciones con el ID del grupo
     });
+  }
+
+  ngOnInit():void {
 
     this.apiService.getGrupo(this.groupId).subscribe(data => {
       this.grupo = data;
-      console.log("elgrupo" + this.grupo);
+      console.log(this.grupo);
     });
   }
 
   editar(id: number) {
     this.router.navigate(['group/', id]);
+  }
+
+  gasto(id: number) {
+    this.router.navigate(['group/gastos/', id]);
   }
 }

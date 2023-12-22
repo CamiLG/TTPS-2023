@@ -2,10 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ApiService} from "../../services/api.service";
 import {ActivatedRoute, Router} from "@angular/router";
-import {GrupoDTO} from "../../models/GrupoDTO";
 import {Grupo} from "../../models/Grupo";
-import {CategoriaGrupo} from "../../models/CategoriaGrupo";
-import {Imagen} from "../../models/Imagen";
+
 
 @Component({
   selector: 'app-group-edit',
@@ -69,7 +67,6 @@ export class GroupEditComponent implements OnInit{
             path: this.grupo.categoriaGrupo.img.path
           }]
         }]*/
-        // Parchear otros campos del formulario con los datos recibidos
       });
     });
 

@@ -1,12 +1,12 @@
 <mat-toolbar color="primary">
-  <a cNavbarBrand>
+  <a cNavbarBrand (click)="home()">
     <img src="./assets/cc-blanco1.svg" alt="" width="132" height="128"/>
   </a>
   <span class="spacer"></span>
   <div *ngIf="userLoginOn" fxLayout="row" fxLayoutAlign="space-evenly center" class="me-auto mb-2 mb-lg-0">
     <button mat-button cNavLink  (click)="home()">Grupos</button>
-    <button mat-button cNavLink disabled>Gastos</button>
-    <button mat-button cNavLink disabled>Amigos</button>
+   <!-- <button mat-button cNavLink (click)="gastos()">Gastos</button>
+    --><button mat-button cNavLink disabled>Amigos</button>
     <button mat-button (click)="logout()">Cerrar Sesion</button>
   </div>
 

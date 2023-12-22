@@ -28,6 +28,10 @@ export class AppNavComponent implements OnInit {
     this.router.navigateByUrl('home')
   }
 
+  gastos() {
+    this.router.navigateByUrl('gastos')
+  }
+
   signin() {
     this.router.navigateByUrl('register')
   }
