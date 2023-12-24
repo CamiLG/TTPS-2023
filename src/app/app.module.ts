@@ -18,7 +18,7 @@ import {
   CardComponent, CardFooterComponent, CardImgDirective,
   ColComponent, ColDirective,
   ContainerComponent,
-  FooterComponent, GutterDirective,
+  FooterComponent, GutterDirective, PlaceholderDirective,
   RowComponent
 } from "@coreui/angular";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -63,7 +63,8 @@ import { GastoViewComponent } from './components/gasto-view/gasto-view.component
     MatSelectModule,
     MatCardModule,
     CardImgDirective,
-    ColDirective
+    ColDirective,
+    PlaceholderDirective
 
   ],
   providers: [

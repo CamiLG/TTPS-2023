@@ -31,6 +31,7 @@ export class GroupEditComponent implements OnInit{
   }];*/
   grupo: any;
   groupId: number= 0;
+  nombreG:string = ``;
 
   constructor(private fb: FormBuilder, private apiService: ApiService,public router: Router, private routeA: ActivatedRoute) {
     this.apiService.getCategoriasGrupos().subscribe(data => {
@@ -53,6 +54,7 @@ export class GroupEditComponent implements OnInit{
     this.apiService.getGrupo(this.groupId).subscribe(data => {
       this.grupo = data;
       console.log(this.grupo);
+      this.nombreG = this.grupo.categoriaGrupo.nombreGrupo;
       // Poblar el formulario con los datos del grupo obtenidos de la API
       this.editForm.patchValue({
         nombre: this.grupo.nombre,

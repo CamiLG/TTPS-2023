@@ -16,7 +16,7 @@ export class HomeComponent {
 
     this.apiService.getGrupos().subscribe(data => {
       this.grupos = data;
-      console.log(this.grupos);
+      //console.log(this.grupos);
     });
   }
 

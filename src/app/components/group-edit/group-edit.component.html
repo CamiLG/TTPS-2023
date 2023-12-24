@@ -2,14 +2,13 @@
 <form class="edit-form" [formGroup]="editForm" (ngSubmit)="onSubmit()">
 
   <mat-form-field>
-    <input matInput placeholder="Nombre" formControlName="nombre" id="nombre">
+    <input matInput [placeholder]="grupo.nombreGrupo" formControlName="nombre" id="nombre">
     <mat-error *ngIf="editForm.get('nombre')?.hasError('required')">El nombre es obligatorio</mat-error>
   </mat-form-field>
   <br>
   <mat-form-field>
     <mat-label>Categoria</mat-label>
-    <mat-select formControlName="categoriaGrupo" name="categoriaGrupo" id="categoriaGrupo">
-
+    <mat-select [placeholder]="nombreG" formControlName="categoriaGrupo" name="categoriaGrupo" id="categoriaGrupo">
       <mat-option *ngFor="let cat of categorias" [value]="cat">
         {{ cat.nombreGrupo }}
       </mat-option>
