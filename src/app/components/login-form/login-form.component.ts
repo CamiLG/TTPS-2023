@@ -34,7 +34,6 @@ export class LoginFormComponent implements OnInit{
     this.loginService.login(this.usuario, this.password)
     .subscribe(
       (response) => {
-        localStorage.setItem('userId', response.id);
         console.log('Inicio de sesión exitoso', response);
         console.log('Usuario:', this.usuario);
         console.log('Contraseña:', this.password);
