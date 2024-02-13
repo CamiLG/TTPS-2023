@@ -71,7 +71,6 @@ export class GroupEditComponent implements OnInit{
         }]*/
       });
     });
-
   }
 
   onSubmit() {

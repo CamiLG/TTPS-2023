@@ -7,7 +7,7 @@
     <button mat-button cNavLink  (click)="home()">Grupos</button>
    <!-- <button mat-button cNavLink (click)="gastos()">Gastos</button>
     --><button mat-button cNavLink disabled>Amigos</button>
-    <button mat-button (click)="logout()">Cerrar Sesion</button>
+    <button mat-button (click)="logout()">Cerrar Sesión</button>
   </div>
 
   <div *ngIf="router.url == '/register'">
@@ -17,5 +17,4 @@
     <button mat-button *ngIf="!userLoginOn" (click)="signin()">Registro</button>
   </div>
 </mat-toolbar>
-
 

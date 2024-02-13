@@ -1,20 +1,21 @@
-<c-container fluid>
+<c-container fluid class="centrar">
 <c-card class="mb-3" [ngStyle]="{'max-width.px': 540}">
   <c-row class="g-0">
     <c-col [md]="4">
-      <img [cCardImg] src="{{grupo.categoriaGrupo.img.path}}">
+      <img [cCardImg] src="{{imagen}}">
     </c-col>
     <c-col [md]="1"></c-col>
     <c-col [md]="6">
     <c-card-body cCol [md]="8">
-      <h1 cCardTitle>Grupo {{grupo.nombre}}</h1>
+      <h1 cCardTitle>Grupo {{nombreG}}</h1>
       <p cCardText>
-        Categoría: {{grupo.categoriaGrupo.nombreGrupo}}
+        Categoría: {{nombreCat}}
       </p>
       <p cCardText>
         <small class="text-medium-emphasis">
           <button mat-raised-button color="primary"  (click)="editar(grupo.id)">Editar</button>
           <button mat-raised-button color="accent"  (click)="gasto(grupo.id)">Ver Gastos</button>
+          <button mat-raised-button color="secondary"  (click)="crearGasto(grupo.id)">Agregar un gasto</button>
         </small>
       </p>
     </c-card-body>

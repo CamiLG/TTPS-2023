@@ -11,6 +11,9 @@ import {Grupo} from "../../models/Grupo";
 export class GroupViewComponent implements OnInit{
   grupo: any;
   groupId: number= 0;
+  imagen: string = '';
+  nombreG: string = '';
+  nombreCat: string = '';
   constructor(private apiService: ApiService,public router: Router, private routeA: ActivatedRoute) {
     this.routeA.params.subscribe(params => {
       this.groupId = +params['id']; // Leer el ID del grupo desde los parámetros de la ruta
@@ -22,7 +25,10 @@ export class GroupViewComponent implements OnInit{
 
     this.apiService.getGrupo(this.groupId).subscribe(data => {
       this.grupo = data;
-      console.log(this.grupo);
+      this.imagen = this.grupo.categoriaGrupo.img.path;
+      this.nombreG = this.grupo.nombre;
+      this.nombreCat = this.grupo.categoriaGrupo.nombreGrupo;
+     // console.log(this.grupo);
     });
   }
 
@@ -32,5 +38,9 @@ export class GroupViewComponent implements OnInit{
 
   gasto(id: number) {
     this.router.navigate(['group/gastos/', id]);
+  }
+
+  crearGasto(id:number) {
+    this.router.navigate(['group/gastos/add/', id]);
   }
 }

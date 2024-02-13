@@ -23,4 +23,8 @@ export class GastoViewComponent {
       console.log(this.gastos);
     });
   }
+
+  editar(id: number) {
+    this.router.navigate(['group/gastos/edit/', id]);
+  }
 }

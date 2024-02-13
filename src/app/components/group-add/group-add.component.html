@@ -1,19 +1,22 @@
-<h1>CREAR GRUPO</h1>
-<form class="crear-form" [formGroup]="crearForm" (ngSubmit)="onSubmit()">
-  <mat-form-field>
-    <input matInput placeholder="Nombre" formControlName="nombre" id="nombre">
-    <mat-error *ngIf="crearForm.get('nombre')?.hasError('required')">El nombre es obligatorio</mat-error>
-  </mat-form-field>
-  <br>
-  <mat-form-field>
-    <mat-label>Categoria</mat-label>
-    <mat-select formControlName="categoriaGrupo" id="categoriaGrupo">
-      <mat-option *ngFor="let cat of categorias" [value]="cat">
-        {{ cat.nombreGrupo }}
-      </mat-option>
-    </mat-select>
-    <mat-error *ngIf="crearForm.get('categoriaGrupo')?.hasError('required')">La categoria es obligatoria</mat-error>
-  </mat-form-field>
-  <br>
-  <button mat-raised-button color="primary" type="submit">Crear grupo</button>
-</form>
+<div class="centrar">
+  <form class="crear-form" [formGroup]="crearForm" (ngSubmit)="onSubmit()">
+    <h1>CREAR GRUPO</h1>
+    <mat-form-field>
+      <mat-label>Nombre: </mat-label>
+      <input matInput placeholder="Nombre" formControlName="nombre" id="nombre">
+      <mat-error *ngIf="crearForm.get('nombre')?.hasError('required')">El nombre es obligatorio</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>Categoria </mat-label>
+      <mat-select formControlName="categoriaGrupo" id="categoriaGrupo">
+        <mat-option *ngFor="let cat of categorias" [value]="cat">
+          {{ cat.nombreGrupo }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="crearForm.get('categoriaGrupo')?.hasError('required')">La categoria es obligatoria</mat-error>
+    </mat-form-field>
+    <br>
+    <button mat-raised-button color="primary" type="submit">Crear grupo</button>
+  </form>
+</div>

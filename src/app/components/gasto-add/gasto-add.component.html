@@ -1,0 +1,40 @@
+<div class="centrar">
+  <form class="crear-form" [formGroup]="crearForm" (ngSubmit)="onSubmit()">
+    <h1>CREAR GASTO</h1>
+    <h3>Para grupo: {{groupName}}</h3>
+    <mat-form-field>
+      <mat-label>Nombre: </mat-label>
+      <input matInput placeholder="Nombre" formControlName="nombre" id="nombre">
+      <mat-error *ngIf="crearForm.get('nombre')?.hasError('required')">El nombre es obligatorio</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>Monto: </mat-label>
+      <input matInput placeholder="Monto" formControlName="monto" id="monto">
+      <mat-error *ngIf="crearForm.get('monto')?.hasError('required')">El monto es obligatorio</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>Categoria: </mat-label>
+      <mat-select formControlName="categoriaGasto" id="categoriaGasto">
+        <mat-option *ngFor="let cat of categorias" [value]="cat">
+          {{ cat.nombreGasto }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="crearForm.get('categoriaGasto')?.hasError('required')">La categoria es obligatoria</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>Dividir el gasto: </mat-label>
+      <mat-select formControlName="formaDivision" id="formaDivision">
+        <mat-option *ngFor="let div of divisiones" [value]="div">
+          {{ div.descripcion }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="crearForm.get('formaDivision')?.hasError('required')">La forma de division es obligatoria</mat-error>
+    </mat-form-field>
+    <br>
+
+    <button mat-raised-button color="primary" type="submit">Agregar gasto</button>
+  </form>
+</div>

@@ -1,9 +1,8 @@
 .mat-toolbar {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-around;
   }
-  
+
   .spacer {
     flex: 1 1 auto;
   }
-  

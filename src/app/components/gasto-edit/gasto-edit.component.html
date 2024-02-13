@@ -1,0 +1,42 @@
+<div class="centrar">
+  <form class="edit-form" [formGroup]="editForm" (ngSubmit)="onSubmit()">
+    <h1>EDITAR GASTO</h1>
+    <mat-form-field>
+      <mat-label>Nombre: </mat-label>
+      <input matInput [placeholder]="nombreG" formControlName="nombre" id="nombre">
+      <mat-error *ngIf="editForm.get('nombre')?.hasError('required')">El nombre es obligatorio</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>Monto: </mat-label>
+      <input matInput [placeholder]="value" formControlName="monto" id="monto">
+      <mat-error *ngIf="editForm.get('monto')?.hasError('required')">El monto es obligatorio</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>Categoria: </mat-label>
+      <mat-select [placeholder]="nombreCat" formControlName="categoriaGasto" name="categoriaGasto" id="categoriaGasto">
+        <ng-container *ngFor="let cat of categorias">
+          <mat-option *ngIf="cat.id!=catId" [value]="cat">
+            {{ cat.nombreGasto }}
+          </mat-option>
+        </ng-container>
+      </mat-select>
+      <mat-error *ngIf="editForm.get('categoriaGasto')?.hasError('required')">La categoria es obligatoria</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>Forma de dividir: </mat-label>
+      <mat-select [placeholder]="desc" formControlName="formaDivision" name="formaDivision" id="formaDivision">
+        <ng-container *ngFor="let div of divisiones">
+        <mat-option *ngIf="div.id!=fdId" [value]="div">
+          {{ div.descripcion }}
+        </mat-option>
+        </ng-container>
+      </mat-select>
+      <mat-error *ngIf="editForm.get('formaDivision')?.hasError('required')">La forma de division es obligatoria</mat-error>
+    </mat-form-field>
+    <br>
+    <button mat-raised-button color="primary" type="submit">Actualizar gasto</button>
+  </form>
+</div>
