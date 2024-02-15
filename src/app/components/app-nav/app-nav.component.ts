@@ -38,13 +38,14 @@ export class AppNavComponent implements OnInit {
 
   logout() {
     this.userLoginOn = false;
+    this.loginService.logout();
     this.router.navigateByUrl('login')
   }
 
   ngOnInit(): void {
-    this.loginService.currentUserLoginOn.subscribe({
-      next: (userLoginOn) => {
-        this.userLoginOn = userLoginOn;
+    this.loginService.currentUser.subscribe({
+      next: (userLogged) => {
+        this.userLoginOn = userLogged != null;
       }
     })
   }
