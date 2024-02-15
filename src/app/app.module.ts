@@ -28,6 +28,9 @@ import { GroupEditComponent } from './components/group-edit/group-edit.component
 import { GroupViewComponent } from './components/group-view/group-view.component';
 import {MatCardModule} from "@angular/material/card";
 import { GastoViewComponent } from './components/gasto-view/gasto-view.component';
+import { GastoAddComponent } from './components/gasto-add/gasto-add.component';
+import { GastoEditComponent } from './components/gasto-edit/gasto-edit.component';
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 @NgModule({
   declarations: [
@@ -40,6 +43,8 @@ import { GastoViewComponent } from './components/gasto-view/gasto-view.component
     GroupEditComponent,
     GroupViewComponent,
     GastoViewComponent,
+    GastoAddComponent,
+    GastoEditComponent,
   ],
   imports: [
     BrowserModule,
@@ -64,7 +69,8 @@ import { GastoViewComponent } from './components/gasto-view/gasto-view.component
     MatCardModule,
     CardImgDirective,
     ColDirective,
-    PlaceholderDirective
+    PlaceholderDirective,
+    MatSnackBarModule
 
   ],
   providers: [

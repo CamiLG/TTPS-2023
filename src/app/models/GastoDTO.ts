@@ -1,23 +1,25 @@
 import {CategoriaGasto} from "./CategoriaGasto";
+import {Imagen} from "./Imagen";
+import {FormasDivision} from "./FormasDivision";
 
-export class Gasto {
-  id: number;
+export class GastoDTO {
   nombre: string;
   categoria: CategoriaGasto;
   monto: number;
   grupo: number;
-  fecha: string;
-  division: number;
+  fechaGasto: any;
+  formaDivision: FormasDivision;
+  img: Imagen;
 
 
-  constructor(id: number, monto:number, nombre: string, categoria: CategoriaGasto, grupo: number, fecha: string, division: number)
+  constructor(monto:number, nombre: string, categoria: CategoriaGasto, grupo: number, fecha: any, division: FormasDivision, imagen: Imagen)
   {
-    this.id = id;
     this.nombre = nombre;
     this.categoria = categoria;
     this.monto = monto;
     this.grupo = grupo;
-    this.fecha = fecha;
-    this.division = division;
+    this.fechaGasto = fecha;
+    this.formaDivision = division;
+    this.img = imagen;
   }
 }
