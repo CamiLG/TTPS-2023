@@ -17,7 +17,7 @@ export class AmigosListComponent {
 
     this.apiService.getAmigos(this.userId).subscribe(data => {
       this.amigos = data;
-      console.log(this.amigos);
+      //console.log(this.amigos);
     });
 
   }

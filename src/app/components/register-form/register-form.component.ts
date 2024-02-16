@@ -27,7 +27,7 @@ export class RegisterFormComponent {
   onSubmit() {
     if (this.registroForm.valid) {
       const usuario: Usuario = this.registroForm.value as Usuario;
-      //console.log('Datos del formulario:', usuario);
+      console.log('Datos del formulario:', usuario);
       this.registerService.register(usuario)
       .subscribe({
         next: (usuario) => {
@@ -35,7 +35,7 @@ export class RegisterFormComponent {
           this.router.navigateByUrl('login')
         },
         error: (errorData) => {
-          //console.error(errorData);
+          console.error(errorData);
           this.snack.open(errorData, "Aceptar",
             { duration: 3000,
               verticalPosition: "top",

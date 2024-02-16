@@ -28,7 +28,7 @@ export class GroupAddComponent {
 
     this.apiService.getCategoriasGrupos().subscribe(data => {
       this.categorias = data;
-      console.log(this.categorias);
+      //console.log(this.categorias);
     });
 
     this.crearForm = this.fb.group({
@@ -41,7 +41,7 @@ export class GroupAddComponent {
   onSubmit() {
     if (this.crearForm.valid) {
       const grupo: GrupoDTO = this.crearForm.value as GrupoDTO;
-      console.log('Datos del formulario:', grupo);
+      //console.log('Datos del formulario:', grupo);
       this.apiService.addGrupo(grupo)
         .subscribe( {
             next: (grupo) => {

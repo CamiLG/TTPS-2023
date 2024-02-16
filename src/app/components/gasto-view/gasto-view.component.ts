@@ -14,13 +14,13 @@ export class GastoViewComponent {
   constructor(private apiService: ApiService, public router: Router, private routeA: ActivatedRoute) {
     this.routeA.params.subscribe(params => {
       this.groupId = +params['id']; // Leer el ID del grupo desde los parámetros de la ruta
-      console.log("a", this.groupId);
+      //console.log("a", this.groupId);
       // Ahora puedes usar this.groupId para realizar operaciones con el ID del grupo
     });
 
     this.apiService.getGastos(this.groupId).subscribe(data => {
       this.gastos = data;
-      console.log(this.gastos);
+     // console.log(this.gastos);
     });
   }
 

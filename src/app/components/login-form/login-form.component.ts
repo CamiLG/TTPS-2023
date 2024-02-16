@@ -23,11 +23,11 @@ export class LoginFormComponent implements OnInit{
   constructor(private loginService: LoginService, public router: Router,  private route: ActivatedRoute, private snack: MatSnackBar){ }
 
   ngOnInit(): void {
-    console.log("Clicked");
+    //console.log("Clicked");
   }
 
   onButtonClick(){
-    console.log("Clicked");
+    //console.log("Clicked");
   }
 
   onSubmit() {

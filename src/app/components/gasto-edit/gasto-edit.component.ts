@@ -27,7 +27,7 @@ export class GastoEditComponent implements OnInit{
   constructor(private fb: FormBuilder, private apiService: ApiService,public router: Router, private routeA: ActivatedRoute, private snack: MatSnackBar) {
     this.apiService.getCategoriasGastos().subscribe(data => {
       this.categorias = data;
-      console.log(this.categorias);
+     // console.log(this.categorias);
     });
     this.apiService.getFormasDivision().subscribe(data => {
       this.divisiones = data;
@@ -46,7 +46,7 @@ export class GastoEditComponent implements OnInit{
     });
     this.apiService.getGasto(this.gastoId).subscribe(data => {
       this.gasto = data;
-      console.log(this.gasto);
+      //console.log(this.gasto);
       this.nombreG = this.gasto.nombre;
       this.nombreCat = this.gasto.categoriaGasto.nombreGasto;
       this.desc = this.gasto.formaDivision.descripcion;
@@ -72,7 +72,7 @@ export class GastoEditComponent implements OnInit{
       let fecha = new Date();
       gasto.fechaGasto = fecha;
       gasto.img = this.gasto.img;
-      console.log('Datos del formulario:', gasto);
+     // console.log('Datos del formulario:', gasto);
       this.apiService.editarGasto(gasto,this.gastoId)
         .subscribe({
             next: (gasto) => {

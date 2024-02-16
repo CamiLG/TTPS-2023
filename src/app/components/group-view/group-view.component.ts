@@ -17,7 +17,7 @@ export class GroupViewComponent implements OnInit{
   constructor(private apiService: ApiService,public router: Router, private routeA: ActivatedRoute) {
     this.routeA.params.subscribe(params => {
       this.groupId = +params['id']; // Leer el ID del grupo desde los parámetros de la ruta
-      console.log("a", this.groupId);
+     // console.log("a", this.groupId);
     });
   }
 

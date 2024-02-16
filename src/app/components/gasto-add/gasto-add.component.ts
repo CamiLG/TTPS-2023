@@ -66,7 +66,7 @@ export class GastoAddComponent {
       gasto.fechaGasto = fecha;
       gasto.img = this.group.categoriaGrupo.img;
       gasto.usuarioGasto = this.user;
-      console.log('Datos del formulario:', gasto);
+     // console.log('Datos del formulario:', gasto);
       this.apiService.addGasto(gasto)
         .subscribe({
             next: (gasto) => {
