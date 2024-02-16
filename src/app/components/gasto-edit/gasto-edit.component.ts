@@ -2,8 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ApiService} from "../../services/api.service";
 import {ActivatedRoute, Router} from "@angular/router";
-import {Grupo} from "../../models/Grupo";
 import {Gasto} from "../../models/Gasto";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-gasto-edit',
@@ -24,7 +24,7 @@ export class GastoEditComponent implements OnInit{
   nombreCat:string = ``;
   desc:string = ``;
 
-  constructor(private fb: FormBuilder, private apiService: ApiService,public router: Router, private routeA: ActivatedRoute) {
+  constructor(private fb: FormBuilder, private apiService: ApiService,public router: Router, private routeA: ActivatedRoute, private snack: MatSnackBar) {
     this.apiService.getCategoriasGastos().subscribe(data => {
       this.categorias = data;
       console.log(this.categorias);
@@ -79,17 +79,27 @@ export class GastoEditComponent implements OnInit{
               this.router.navigateByUrl('home')
             },
             error: (errorData) => {
-              console.error(errorData);
+              this.snack.open(errorData, "Aceptar",
+                { duration: 3000,
+                  verticalPosition: "top",
+                  horizontalPosition: "center"
+                });
             },
             complete: () => {
-              //Acá se podría llamar a un servicio de notificacion que modele un mensaje
-              //en pantalla diciendo que el grupo se cargó exitosamente
-              console.info("Gasto modificado");
+              this.snack.open("Gasto modificado con éxito", "Aceptar",
+                { duration: 4000,
+                  verticalPosition: "top",
+                  horizontalPosition: "center"
+                });
             }
           }
         );
     } else {
-      console.log('Formulario no válido. Por favor, revisa los campos.');
+      this.snack.open("Formulario no válido. Por favor, revisá los campos.", "Aceptar",
+        { duration: 3000,
+          verticalPosition: "top",
+          horizontalPosition: "center"
+        });
     }
   }
 }

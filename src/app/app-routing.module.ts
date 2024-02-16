@@ -10,6 +10,7 @@ import {GastoViewComponent} from "./components/gasto-view/gasto-view.component";
 import { AuthGuard } from './auth.guard';
 import {GastoAddComponent} from "./components/gasto-add/gasto-add.component";
 import {GastoEditComponent} from "./components/gasto-edit/gasto-edit.component";
+import {AmigosListComponent} from "./components/amigos-list/amigos-list.component";
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -20,8 +21,9 @@ const routes: Routes = [
   {path: 'group/:id', component: GroupEditComponent, canActivate: [AuthGuard]},
   {path: 'group/view/:id', component: GroupViewComponent, canActivate: [AuthGuard]},
   {path: 'group/gastos/:id', component: GastoViewComponent, canActivate: [AuthGuard]},
-  {path: 'group/gastos/add/:id', component: GastoAddComponent},
-  {path: 'group/gastos/edit/:id', component: GastoEditComponent}
+  {path: 'group/gastos/add/:id', component: GastoAddComponent, canActivate: [AuthGuard]},
+  {path: 'group/gastos/edit/:id', component: GastoEditComponent, canActivate: [AuthGuard]},
+  {path: 'amigos', component: AmigosListComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

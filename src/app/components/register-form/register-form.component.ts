@@ -27,41 +27,38 @@ export class RegisterFormComponent {
   onSubmit() {
     if (this.registroForm.valid) {
       const usuario: Usuario = this.registroForm.value as Usuario;
-      console.log('Datos del formulario:', usuario);
+      //console.log('Datos del formulario:', usuario);
       this.registerService.register(usuario)
       .subscribe({
         next: (usuario) => {
           console.log('Datos del formulario:', usuario);
-          this.snack.open("El usuario se agrego con exito", "Aceptar",
-            { duration: 3000,
-              verticalPosition: "top",
-              horizontalPosition: "right"
-          });
           this.router.navigateByUrl('login')
         },
         error: (errorData) => {
-          console.error(errorData);
-          this.snack.open("Ha ocurrido un error con el sistema", "Aceptar",
+          //console.error(errorData);
+          this.snack.open(errorData, "Aceptar",
             { duration: 3000,
               verticalPosition: "top",
-              horizontalPosition: "right"
+              horizontalPosition: "center"
             });
         },
         complete: () => {
-          //Acá se podría llamar a un servicio de notificacion que modele un mensaje
-          //en pantalla diciendo que el usuario se cargó exitosamente
-          console.info("Registro completo");
-          this.snack.open("El usuario se registro con exito", "Aceptar",
-            { duration: 3000,
+          //console.info("Registro completo");
+          this.snack.open("Usuario registrado con éxito", "Aceptar",
+            { duration: 4000,
               verticalPosition: "top",
-              horizontalPosition: "right"
+              horizontalPosition: "center"
             });
         }
       }
 
       );
     } else {
-      console.log('Formulario no válido. Por favor, revisa los campos.');
+      this.snack.open("Formulario no válido. Por favor, revisá los campos.", "Aceptar",
+        { duration: 3000,
+          verticalPosition: "top",
+          horizontalPosition: "center"
+        });
     }
   }
 }

@@ -3,15 +3,15 @@
   <h1>EDITAR GRUPO</h1>
   <mat-form-field>
     <mat-label>Nombre: </mat-label>
-    <input matInput [placeholder]="grupo.nombreGrupo" formControlName="nombre" id="nombre">
+    <input matInput [placeholder]="nombreGrupo" formControlName="nombre" id="nombre">
     <mat-error *ngIf="editForm.get('nombre')?.hasError('required')">El nombre es obligatorio</mat-error>
   </mat-form-field>
   <br>
   <mat-form-field>
     <mat-label>Categoria </mat-label>
-    <mat-select [placeholder]="nombreG" formControlName="categoriaGrupo" name="categoriaGrupo" id="categoriaGrupo">
+    <mat-select [placeholder]="nombreCat" formControlName="categoriaGrupo" name="categoriaGrupo" id="categoriaGrupo">
       <ng-container *ngFor="let cat of categorias">
-        <mat-option *ngIf="cat.id!=grupo.categoriaGrupo.id" [value]="cat">
+        <mat-option *ngIf="cat.id!=catId" [value]="cat">
           {{ cat.nombreGrupo }}
         </mat-option>
       </ng-container>

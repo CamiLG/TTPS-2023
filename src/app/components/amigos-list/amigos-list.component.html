@@ -1,0 +1,19 @@
+<!--
+<button mat-raised-button (click)="crearGasto()">Crear grupo</button>
+&nbsp;-->
+<div fxLayout="row" fxLayoutAlign="space-evenly center" class="me-auto mb-2 mb-lg-0">
+  <h1 class="align-content-center">MIS AMIGOS</h1><br>
+</div>
+<c-container fluid>
+  <c-row [gutter]="4" class="mb-3" [md]="3" [xs]="1">
+    <c-col *ngFor="let usr of amigos; index as i;">
+      <c-card class="h-100">
+        <c-card-body>
+          <h2 cCardTitle>{{usr.apellido}}, {{usr.nombre}}</h2>
+          <p cCardText>Usuario: {{usr.usuario}}</p>
+          <p cCardText>Email: {{usr.email}}</p>
+        </c-card-body>
+      </c-card>
+    </c-col>
+  </c-row>
+</c-container>

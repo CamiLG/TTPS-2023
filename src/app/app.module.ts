@@ -31,6 +31,7 @@ import { GastoViewComponent } from './components/gasto-view/gasto-view.component
 import { GastoAddComponent } from './components/gasto-add/gasto-add.component';
 import { GastoEditComponent } from './components/gasto-edit/gasto-edit.component';
 import {MatSnackBarModule} from "@angular/material/snack-bar";
+import { AmigosListComponent } from './components/amigos-list/amigos-list.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     GastoViewComponent,
     GastoAddComponent,
     GastoEditComponent,
+    AmigosListComponent,
   ],
   imports: [
     BrowserModule,

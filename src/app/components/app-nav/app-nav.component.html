@@ -6,7 +6,7 @@
   <div *ngIf="userLoginOn" fxLayout="row" fxLayoutAlign="space-evenly center" class="me-auto mb-2 mb-lg-0">
     <button mat-button cNavLink  (click)="home()">Grupos</button>
    <!-- <button mat-button cNavLink (click)="gastos()">Gastos</button>
-    --><button mat-button cNavLink disabled>Amigos</button>
+    --><button mat-button cNavLink (click)="amigos()">Amigos</button>
     <button mat-button (click)="logout()">Cerrar Sesión</button>
   </div>
 

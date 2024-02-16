@@ -18,6 +18,10 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
+  getUsuario(id: number): Observable<Usuario[]> {
+    return this.http.get<Usuario[]>(`${env.url}usuarios/`+id)
+  }
+
   getGrupos(): Observable<Grupo[]> {
     return this.http.get<Grupo[]>(`${env.url}grupos/all`)
   }
@@ -72,6 +76,19 @@ export class ApiService {
       catchError(this.handleError)
     )
   }
+
+  getAmigos(id: number): Observable<Usuario[]> {
+    return this.http.get<Usuario[]>(`${env.url}usuarios/amigos/`+id)
+  }
+
+  obtenerUltimoGrupoCreado() {
+    return this.http.get<any>(`${env.url}grupos/ultimoGrupo`);
+  }
+
+  asignarGrupoUsuario(userId: number, gId: number ) {
+    return this.http.get<any>(`${env.url}grupos/asignar/`+userId+`\/`+gId);
+  }
+
   private handleError(error:HttpErrorResponse){
     if(error.status===0){
       console.error('Se produjo un error', error.error);

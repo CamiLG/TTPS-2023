@@ -2,10 +2,9 @@ import { Component } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ApiService} from "../../services/api.service";
-import {GrupoDTO} from "../../models/GrupoDTO";
-import {Gasto} from "../../models/Gasto";
-import {formatDate} from "@angular/common";
 import {GastoDTO} from "../../models/GastoDTO";
+
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-gasto-add',
@@ -18,9 +17,19 @@ export class GastoAddComponent {
   divisiones: any[] = [];
   groupId: number= 0;
   group: any;
+  user: any;
   groupName: string = '';
+  userId: any;
 
-  constructor(private fb: FormBuilder, private apiService: ApiService, public router: Router, private routeA: ActivatedRoute) {
+  constructor(private fb: FormBuilder, private apiService: ApiService, public router: Router, private routeA: ActivatedRoute, private snack: MatSnackBar) {
+
+    this.userId = localStorage.getItem("userId");
+    //console.log("usuario:", this.userId);
+    this.apiService.getUsuario(this.userId).subscribe(data => {
+      this.user = data;
+      //console.log("usuario obj:", this.user)
+    });
+
     this.apiService.getCategoriasGastos().subscribe(data => {
       this.categorias = data;
       //console.log(this.categorias);
@@ -39,7 +48,7 @@ export class GastoAddComponent {
 
     this.routeA.params.subscribe(params => {
       this.groupId = +params['id']; // Leer el ID del grupo desde los parámetros de la ruta
-      console.log("id del grupo", this.groupId);
+      //console.log("id del grupo", this.groupId);
       // Ahora puedes usar this.groupId para realizar operaciones con el ID del grupo
     });
 
@@ -48,7 +57,6 @@ export class GastoAddComponent {
       this.groupName = this.group.nombre;
       //console.log(this.groupName);
     });
-
 
   }
 
@@ -59,25 +67,35 @@ export class GastoAddComponent {
       gasto.grupo = this.group;
       gasto.fechaGasto = fecha;
       gasto.img = this.group.categoriaGrupo.img;
+      gasto.usuarioGasto = this.user;
       console.log('Datos del formulario:', gasto);
       this.apiService.addGasto(gasto)
         .subscribe({
             next: (gasto) => {
-              alert('Gasto agregado con exito');
-              this.router.navigateByUrl('home')
+              this.router.navigate(['group/gastos/add/', this.groupId]);
             },
             error: (errorData) => {
-              console.error(errorData);
+              this.snack.open(errorData, "Aceptar",
+                { duration: 3000,
+                  verticalPosition: "top",
+                  horizontalPosition: "center"
+                });
             },
             complete: () => {
-              //Acá se podría llamar a un servicio de notificacion que modele un mensaje
-              //en pantalla diciendo que el grupo se cargó exitosamente
-              console.info("Gasto agregado");
+              this.snack.open("Gasto agregado con éxito", "Aceptar",
+                { duration: 4000,
+                  verticalPosition: "top",
+                  horizontalPosition: "center"
+                });
             }
           }
         );
     } else {
-      console.log('Formulario no válido. Por favor, revisa los campos.');
+      this.snack.open("Formulario no válido. Por favor, revisá los campos.", "Aceptar",
+        { duration: 3000,
+          verticalPosition: "top",
+          horizontalPosition: "center"
+        });
     }
   }
 }

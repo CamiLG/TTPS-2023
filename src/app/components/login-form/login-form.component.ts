@@ -1,6 +1,7 @@
 import { Component, OnInit,  } from '@angular/core';
 import { LoginService } from '../../services/login.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-login-form',
@@ -19,7 +20,7 @@ export class LoginFormComponent implements OnInit{
   usuario: string = '';
   password: string = '';
 
-  constructor(private loginService: LoginService, public router: Router,  private route: ActivatedRoute){ }
+  constructor(private loginService: LoginService, public router: Router,  private route: ActivatedRoute, private snack: MatSnackBar){ }
 
   ngOnInit(): void {
     console.log("Clicked");
@@ -30,23 +31,27 @@ export class LoginFormComponent implements OnInit{
   }
 
   onSubmit() {
-//comment
     this.loginService.login(this.usuario, this.password)
     .subscribe(
       (response) => {
-        console.log('Inicio de sesión exitoso', response);
-        console.log('Usuario:', this.usuario);
-        console.log('Contraseña:', this.password);
+        this.snack.open("Ingresando ...", "",
+          { duration: 2000,
+            verticalPosition: "top",
+            horizontalPosition: "center"
+          });
+        //console.log('Inicio de sesión exitoso', response);
+        //console.log('Usuario:', this.usuario);
+        //console.log('Contraseña:', this.password);
         this.router.navigateByUrl('home')
       },
       (error) => {
-        console.error('Error en el inicio de sesión', error);
-        console.log('Usuario:', this.usuario);
-        console.log('Contraseña:', this.password);
+        this.snack.open("Ha ocurrido un error. Por favor vuelva a intentarlo.", "Aceptar",
+          { duration: 3000,
+            verticalPosition: "top",
+            horizontalPosition: "center"
+          });
+        //console.error('Error en el inicio de sesión', error);
       }
-
     )
-
-
   }
 }
