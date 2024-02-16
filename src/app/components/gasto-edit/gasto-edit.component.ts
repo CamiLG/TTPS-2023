@@ -76,7 +76,7 @@ export class GastoEditComponent implements OnInit{
       this.apiService.editarGasto(gasto,this.gastoId)
         .subscribe({
             next: (gasto) => {
-              this.router.navigateByUrl('home')
+              this.router.navigate(['group/gastos/', this.gasto.grupo.id]);
             },
             error: (errorData) => {
               this.snack.open(errorData, "Aceptar",

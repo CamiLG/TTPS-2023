@@ -27,12 +27,11 @@ export class GastoAddComponent {
     //console.log("usuario:", this.userId);
     this.apiService.getUsuario(this.userId).subscribe(data => {
       this.user = data;
-      //console.log("usuario obj:", this.user)
+     // console.log("usuario obj:", this.user)
     });
 
     this.apiService.getCategoriasGastos().subscribe(data => {
       this.categorias = data;
-      //console.log(this.categorias);
     });
     this.apiService.getFormasDivision().subscribe(data => {
       this.divisiones = data;
@@ -43,7 +42,6 @@ export class GastoAddComponent {
       categoriaGasto: [this.categorias, Validators.required],
       monto: ['', Validators.required],
       formaDivision: [this.divisiones, Validators.required]
-     // imagen: ['', Validators.required]
     });
 
     this.routeA.params.subscribe(params => {
@@ -72,7 +70,7 @@ export class GastoAddComponent {
       this.apiService.addGasto(gasto)
         .subscribe({
             next: (gasto) => {
-              this.router.navigate(['group/gastos/add/', this.groupId]);
+              this.router.navigate(['group/gastos/', this.groupId]);
             },
             error: (errorData) => {
               this.snack.open(errorData, "Aceptar",
